@@ -2,8 +2,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set runtimepath+=~/.config/nvim//bundle/Vundle.vim
-set runtimepath+=~/.config/nvim//bundle/deoplete.nvim
+set runtimepath+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
@@ -17,6 +16,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ap/vim-buftabline'
 Plugin 'zchee/deoplete-go'
+Plugin 'Shougo/deoplete.nvim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -70,6 +70,7 @@ set ofu=syntaxcomplete#Complete
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
+let g:python3_host_prog = '/usr/bin/python3.4'
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 let mapleader=","

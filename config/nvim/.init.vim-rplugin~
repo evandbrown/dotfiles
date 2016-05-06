@@ -1,6 +1,6 @@
 " python3 plugins
-call remote#host#RegisterPlugin('python3', '/home/evanbrown/.config/nvim//bundle/deoplete.nvim/rplugin/python3/deoplete', [
-      \ {'sync': 1, 'name': '_deoplete', 'type': 'function', 'opts': {}},
+call remote#host#RegisterPlugin('python3', '/home/evanbrown/.vim/bundle/deoplete.nvim/rplugin/python3/deoplete', [
+      \ {'sync': 1, 'name': '_deoplete', 'opts': {}, 'type': 'function'},
      \ ])
 
 
