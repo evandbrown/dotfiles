@@ -9,11 +9,10 @@
     background_image = None
     background_darkness = 0.9
     use_system_font = False
-    foreground_color = "#839496"
+    foreground_color = "#ffffff"
     icon_bell = False
     show_titlebar = False
     font = Droid Sans Mono for Powerline 12
-    background_color = "#002b36"
     scrollback_infinite = True
 [layouts]
   [[default]]

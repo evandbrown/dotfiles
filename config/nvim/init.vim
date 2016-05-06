@@ -49,11 +49,11 @@ set title                         " Set the terminal's title
 set visualbell                    " No beeping.
 
 " Color
-set background=dark
-colorscheme solarized
+set background=light
+colorscheme lucius
 
 " Setting shell for vim
-set shell=sh
+set shell=bash
 set mouse=a
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
