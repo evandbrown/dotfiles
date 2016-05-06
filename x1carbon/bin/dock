@@ -1,0 +1,4 @@
+#! /bin/bash
+xinput --set-prop 'Kingsis Peripherals Evoluent VerticalMouse 4' 'Device Accel Constant Deceleration' .45 2> /dev/null
+xrandr --output DP2-2 --auto --left-of eDP1 --output eDP1 --mode 1920x1080
+feh --bg-fill --randomize ~/.wallpaper/* &

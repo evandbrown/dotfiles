@@ -1,0 +1,18 @@
+#!/bin/bash
+synclient VertTwoFingerScroll=1
+synclient HorizTwoFingerScroll=1
+synclient LockedDrags=1
+synclient LockedDragTimeout=5000
+synclient TapButton1=1
+synclient TapButton2=3
+synclient TapButton3=0
+synclient ClickFinger1=1
+synclient ClickFinger2=3
+synclient ClickFinger3=0
+synclient TapAndDragGesture=1
+synclient ClickPad=0
+synclient CoastingSpeed=50
+synclient MinSpeed=.75
+synclient MinSpeed=1.25
+synclient VertEdgeScroll=1
+synclient HorizEdgeScroll=1

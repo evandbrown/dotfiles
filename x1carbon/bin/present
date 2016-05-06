@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Mirror on HDMI @ 1920x1080
+xrandr --output HDMI2 --same-as eDP1 --output eDP1 --mode 1920x1080
+
+# Mirror on DisplayPort
+xrandr --output DP1 --same-as eDP1 --output eDP1 --mode 1920x1080
+
+# This example shows how to set output resolution
+#xrandr --output eDP1 --mode 2560x1440 --output DP1 --mode 2560x1600 --same-as eDP1
+
+# Mirror on HDMI @ 1920x1080
+# xrandr --output HDMI2 --same-as eDP1 --output eDP1 --mode 1920x1080

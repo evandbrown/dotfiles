@@ -1,0 +1,53 @@
+out_to_x no
+own_window no
+out_to_console yes
+background no
+max_text_width 0
+
+# Update interval in seconds
+update_interval 2.0
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+# Shortens units to a single character (kiB->k, GiB->G, etc.). Default is off.
+short_units yes
+
+# How strict should if_up be when testing an interface for being up?
+# The value is one of up, link or address, to check for the interface
+# being solely up, being up and having link or being up, having link
+# and an assigned IP address. 
+if_up_strictness address
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+# use_spacer should have an argument of left, right, or none
+use_spacer left
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# Stuff after 'TEXT' will be formatted on screen
+TEXT
+
+# JSON for i3bar
+
+ [
+   { "full_text" : "RAM ${memperc}%" , "color" : ${if_match ${memperc}<90}"\#ffffff"${else}"\#ff0000"${endif} },
+   { "full_text" : "/ ${fs_free /}" , "color" : "\#FFF277" },
+   { "full_text" : "~${fs_free /home}" , "color" : "\#FFF277" },
+   { "full_text" : "♪ ${exec $HOME/.config/i3/volume.sh}" , "color" : "\#ffffff" },
+   { "full_text" : "☼ ${exec $HOME/.config/i3/brightness.sh}%" , "color" : "\#ffffff" },
+   { "full_text" : "${cpubar cpu0 0,20}" , "color" : "\#00d6ff" },
+   { "full_text" : "${cpubar cpu1 0,10}" , "color" : "\#585858" },
+   { "full_text" : "${cpubar cpu2 0,10}" , "color" : "\#585858" },
+   { "full_text" : "${cpubar cpu3 0,10}" , "color" : "\#585858" },
+   { "full_text" : "${cpubar cpu4 0,10}" , "color" : "\#585858" },
+  { "full_text" : "⚡ ${battery_short}" , "color" : ${if_match ${battery_percent} >= 60}"\#00FF00"${endif}${if_match ${battery_percent} < 60}${if_match ${battery_percent} < 20}"\#FF2600"${else}"\#FFF277"${endif}${endif} },
+   { "full_text" : "${time %a %b %e,%l:%M%p}" , "color" : "\#00d6ff" }
+ ],
+
