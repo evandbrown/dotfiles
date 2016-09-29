@@ -17,6 +17,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'ap/vim-buftabline'
 Plugin 'zchee/deoplete-go'
 Plugin 'Shougo/deoplete.nvim'
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -50,7 +51,8 @@ set visualbell                    " No beeping.
 
 " Color
 set background=light
-colorscheme lucius
+"colorscheme lucius
+colorscheme nofrils-light
 
 " Setting shell for vim
 set shell=bash
@@ -150,3 +152,6 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+" yaml
+au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim

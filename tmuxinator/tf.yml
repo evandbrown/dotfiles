@@ -1,0 +1,24 @@
+# ~/.tmuxinator/tf.yml
+
+name: tf
+root: ~/dev/go-workspaces/terraform/src/github.com/hashicorp/terraform
+pre_window: "export GOPATH=~/dev/go-workspaces/terraform"
+tmux_command: /usr/bin/tmux -2
+
+windows:
+  - vim:
+      layout: 2348,255x81,0,0[255x68,0,0,0,255x12,0,69,1]
+      panes:
+        - vim builtin/providers/google/provider.go
+        - clear
+
+  - acctests:
+      panes:
+        - echo "make testacc TEST=./builtin/providers/google GOOGLE_PROJECT=evandbrown17 GOOGLE_REGION=us-central1 TESTARGS='-run=TestAcc...'"
+
+  - scratch:
+      root: ~/dev/google/tf-issues
+      panes:
+        - clear
+        - clear
+

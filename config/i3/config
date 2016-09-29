@@ -15,7 +15,6 @@ set $psst --no-startup-id
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-#font xft:Source Code Pro for Powerline ExtraLight 12
 font xft:Droid Sans Mono for Powerline 14
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -167,25 +166,31 @@ bar {
       focused_workspace #f5f5f5 #5697b2
       urgent_workspace #000000 #bc9b54 
     }
+    position top
 }
 
 client.focused  #262626 #2e9ef4 #262626 #2e9ef4
 client.unfocused  #c9c9c9 #c9c9c9 #000000 #c9c9c9
-#client.unfocused  #000000 #000000 #000000 #000000
-#client.focused  #262626 #262626 #9c9c9c  #2e9ef4
 
 hide_edge_borders both
 
 # Custom window placement
 #for_window [title="Hangouts"] move container to workspace Hangouts
 for_window [class="google-chrome" window_role="browser"] border pixel 1
+for_window [class="Code"] border pixel 1
+for_window [class="Atom"] border pixel 0
 for_window [class="Terminator"] border pixel 2
 for_window [class="X-terminal-emulator"] border pixel 2
 for_window [title="Terminator Preferences"] floating enable
 for_window [class="Spotify"] floating enable, move container to workspace Spotify
 for_window [class="XCalc"] floating enable
+
 exec --no-startup-id nm-applet
 exec --no-startup-id xautolock -time 5 -locker "/usr/bin/i3lock -c 000000" &
 exec --no-startup-id gnome-settings-daemon &
+exec --no-startup-id gnome-sound-applet
+exec start-pulseaudio-x11 &
 exec --no-startup-id blueman-applet &
 exec --no-startup-id feh --bg-fill --randomize ~/.wallpaper/* &
+exec xmodmap /home/evanbrown/.Xmodmap &
+exec touch ~/fuckyou

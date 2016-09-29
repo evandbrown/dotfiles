@@ -5,6 +5,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# vi mode
+set -o vi
+
 PATH=$(getconf PATH)
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin:/usr/local/bin
 
@@ -37,7 +40,7 @@ if [ -x $HOME/bin/google-cloud-sdk/bin/gcloud ]; then
 fi
 
 # some sweet google creds
-if [ -x $HOME/keys/evandbrown17.key.json ]; then
+if [ -s $HOME/keys/evandbrown17.key.json ]; then
   export GOOGLE_CREDENTIALS=$(cat $HOME/keys/evandbrown17.key.json)
   export GOOGLE_ACCOUNT_FILE=$GOOGLE_CREDENTIALS_FILE
 fi
@@ -60,6 +63,10 @@ alias la='ls -A'
 alias l='ls -CF'
 alias tf='terraform'
 alias vim='/usr/local/bin/nvim'
+
+# tmux
+alias tmux='tmux -2'
+alias mux='tmuxinator start'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
