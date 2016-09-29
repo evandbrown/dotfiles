@@ -20,6 +20,7 @@ end
 
 puts "Bootstrapping Evan's Dotfiles..."
 link "~/.dotfiles/neovim", "~/.neovim"
+link "~/.dotfiles/tmuxinator", "~/.tmuxinator"
 link "~/.dotfiles/bash/.bash_profile", "~/.bash_profile"
 link "~/.dotfiles/bash/.bashrc", "~/.bashrc"
 link "~/.dotfiles/bash-it", "~/.bash_it"
@@ -30,5 +31,6 @@ link "~/.dotfiles/config/i3", "~/.config/i3"
 link "~/.dotfiles/config/nvim/", "~/.config/nvim/"
 link "~/.dotfiles/config/terminator", "~/.config/terminator"
 link "~/.dotfiles/wallpaper", "~/.wallpaper"
+link "~/.dotfiles/tmux/.tmux.conf", "~/.tmux.conf"
 
 puts "done"

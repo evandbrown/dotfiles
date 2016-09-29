@@ -6,7 +6,8 @@
 [[ $- != *i* ]] && return
 
 # vi mode
-set -o vi
+#set -o vi
+export TERM=screen-256color
 
 PATH=$(getconf PATH)
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin:/usr/local/bin
@@ -40,9 +41,8 @@ if [ -x $HOME/bin/google-cloud-sdk/bin/gcloud ]; then
 fi
 
 # some sweet google creds
-if [ -s $HOME/keys/evandbrown17.key.json ]; then
-  export GOOGLE_CREDENTIALS=$(cat $HOME/keys/evandbrown17.key.json)
-  export GOOGLE_ACCOUNT_FILE=$GOOGLE_CREDENTIALS_FILE
+if [ -s $HOME/keys/google.key.json ]; then
+  export GOOGLE_CREDENTIALS=$(cat $HOME/keys/google.key.json)
 fi
 
 # enable color support of ls and also add handy aliases
@@ -61,8 +61,8 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias tf='terraform'
-alias vim='/usr/local/bin/nvim'
+alias tf='$GOPATH/bin/terraform'
+alias vim='$HOME/.local/bin/nvim'
 
 # tmux
 alias tmux='tmux -2'
