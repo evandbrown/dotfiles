@@ -30,8 +30,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+space exec rofi -show run -bg '#4c7899' -fg '#c9c9c9' -lines 5 -padding 10 -columns 1 -lines 0
 
 # app shortcuts
-bindsym $mod+x exec google-chrome --disable-gpu --profile-directory='Profile 1'
-bindsym $mod+c exec google-chrome --disable-gpu --profile-directory='Profile 2'
+bindsym $mod+x exec google-chrome --profile-directory='Profile 1'
+bindsym $mod+c exec google-chrome --profile-directory='Profile 2'
 
 # change focus
 bindsym $mod+j focus left
@@ -166,21 +166,19 @@ bar {
       focused_workspace #f5f5f5 #5697b2
       urgent_workspace #000000 #bc9b54 
     }
+    tray_output primary
+    #tray_padding 0
     position top
 }
 
 client.focused  #262626 #2e9ef4 #262626 #2e9ef4
-client.unfocused  #c9c9c9 #c9c9c9 #000000 #c9c9c9
+#client.unfocused  #c9c9c9 #c9c9c9 #000000 #c9c9c9
+client.unfocused  #000000 #000000 #c9c9c9 #000000
 
-hide_edge_borders both
+#hide_edge_borders both
 
 # Custom window placement
-#for_window [title="Hangouts"] move container to workspace Hangouts
-for_window [class="google-chrome" window_role="browser"] border pixel 1
-for_window [class="Code"] border pixel 1
-for_window [class="Atom"] border pixel 0
-for_window [class="Terminator"] border pixel 2
-for_window [class="X-terminal-emulator"] border pixel 2
+for_window [class="google-chrome" window_role="browser"] border pixel 2
 for_window [title="Terminator Preferences"] floating enable
 for_window [class="Spotify"] floating enable, move container to workspace Spotify
 for_window [class="XCalc"] floating enable
@@ -193,4 +191,3 @@ exec start-pulseaudio-x11 &
 exec --no-startup-id blueman-applet &
 exec --no-startup-id feh --bg-fill --randomize ~/.wallpaper/* &
 exec xmodmap /home/evanbrown/.Xmodmap &
-exec touch ~/fuckyou

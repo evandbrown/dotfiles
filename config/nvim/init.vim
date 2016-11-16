@@ -18,6 +18,7 @@ Plugin 'ap/vim-buftabline'
 Plugin 'zchee/deoplete-go'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'SirVer/ultisnips'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -93,8 +94,10 @@ set autoindent
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
+" Enable syntax, but not for yml files
+au BufNewFile,BufRead * if expand('<afile>:e') !=? 'yml' | syntax enable | endif
+
 " Color Scheme
-syntax enable
 set t_Co=256
 
 map <leader>t :TagbarToggle<cr>
@@ -103,6 +106,12 @@ map <leader>g :Git<Space>
 map <leader>c :CtrlPClearAllCaches<cr>
 map <leader>/ :Ack<Space>
 map <leader>d :bp\|bd # <cr>
+
+" Quickfix
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+
+" bind L to grep word under cursor
+map <F4> :execute "grep -F " . expand("<cword>") . " **/*" <Bar> cw<CR>
 
 " Removing search highlighting
 nnoremap <ESC><ESC> :nohlsearch<CR>

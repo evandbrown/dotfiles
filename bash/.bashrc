@@ -1,7 +1,7 @@
 #
 # ~/.bashrc
 #
-
+SCM_CHECK=true
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -10,13 +10,14 @@
 export TERM=screen-256color
 
 PATH=$(getconf PATH)
-export PATH=$PATH:$HOME/.local/bin:$HOME/bin:/usr/local/bin
 
 # Set up a default Go workspace
 [ -z "$GOPATH" ] && export GOPATH=$HOME/dev/golang
 
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin:/usr/local/bin
+
 # Add Go to the path
-export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+export PATH=$PATH:$GOPATH/bin:/usr/local/go17/bin
 export PATH=$PATH:$HOME/bin/go_appengine/
 
 # Path to the bash it configuration

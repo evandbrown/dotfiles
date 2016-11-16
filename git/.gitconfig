@@ -1,6 +1,6 @@
 [user]
-name = Evan Brown
-email = evanbrown@google.com
+	name = Evan Brown
+	email = evanbrown@google.com
 [core]
 excludesfile = /Users/evanbrown/.gitignore_global
 [http]
@@ -13,4 +13,5 @@ pending = codereview pending
 submit = codereview submit
 sync = codereview sync
 lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+pr = !"pr() { git fetch origin pull/$1/head:pr-$1; git checkout pr-$1; }; pr"
 
