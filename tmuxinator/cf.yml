@@ -1,25 +1,25 @@
 # ~/.tmuxinator/cf.yml
 
 name: cf
-root: ~/dev/cloudfoundry
-pre_window: "export GOPATH=~/dev/go-workspaces/cloudfoundry"
+root: ~/dev/go-workspaces/cloudfoundry/github.com/cloudfoundry-incubator/bosh-google-cpi-release
+# pre_window: "export GOPATH=$(pwd); PATH=$PATH:$GOPATH/bin"
 tmux_command: /usr/bin/tmux -2
 
 windows:
   - cpi:
-      root: ~/dev/go-workspaces/cloudfoundry/src/bosh-google-cpi
       layout: 2348,255x81,0,0[255x68,0,0,0,255x12,0,69,1]
+      root: $GOPATH/src/bosh-google-cpi-release
       panes:
         - vim README.md
         - clear
 
   - tests:
-      root: ~/dev/go-workspaces/cloudfoundry/src/bosh-google-cpi/integration
+      root: ~/dev/go-workspaces/cloudfoundry/github.com/cloudfoundry-incubator/bosh-google-cpi-release/src/bosh-google-cpi/integration
       panes:
         - clear
 
   - concourse:
-      root: ~/dev/cloudfoundry/bosh-google-cpi-release/ci
+      root: ~/dev/go-workspaces/cloudfoundry/github.com/cloudfoundry-incubator/bosh-google-cpi-release/ci
       layout: 2348,255x81,0,0[255x68,0,0,0,255x12,0,69,1]
       panes:
         - vim pipeline.yml

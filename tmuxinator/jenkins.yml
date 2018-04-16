@@ -1,0 +1,23 @@
+# ~/.tmuxinator/tf.yml
+name: jenkins
+root: ~/dev/google-compute-plugin
+pre_window: ""
+tmux_command: /usr/bin/tmux -2
+
+windows:
+  - vim:
+      layout: 2348,255x81,0,0[255x68,0,0,0,255x12,0,69,1]
+      panes:
+        - clear
+        - clear
+
+  - docker:
+      panes:
+        - clear
+
+  - run:
+      panes:
+        - mvn hpi:run
+        - clear
+
+

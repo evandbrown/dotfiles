@@ -1,0 +1,19 @@
+# ~/.tmuxinator/tf.yml
+name: packer
+root: ~/dev/go-workspaces/packer/src/github.com/hashicorp/packer
+pre_window: "export GOPATH=~/dev/go-workspaces/packer"
+tmux_command: /usr/bin/tmux -2
+
+windows:
+  - vim:
+      layout: 2348,255x81,0,0[255x68,0,0,0,255x12,0,69,1]
+      panes:
+        - clear
+        - clear
+
+  - scratch:
+      panes:
+        - clear
+        - clear
+
+

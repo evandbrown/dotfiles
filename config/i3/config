@@ -15,7 +15,7 @@ set $psst --no-startup-id
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:Droid Sans Mono for Powerline 14
+font pango: Droid Sans Mono for Powerline 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -62,7 +62,8 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+#bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+space exec i3lock
 
 # change focus between tiling / floating windows
 #bindsym $mod+space focus mode_toggle
@@ -180,14 +181,11 @@ client.unfocused  #000000 #000000 #c9c9c9 #000000
 # Custom window placement
 for_window [class="google-chrome" window_role="browser"] border pixel 2
 for_window [title="Terminator Preferences"] floating enable
-for_window [class="Spotify"] floating enable, move container to workspace Spotify
 for_window [class="XCalc"] floating enable
 
 exec --no-startup-id nm-applet
 exec --no-startup-id xautolock -time 5 -locker "/usr/bin/i3lock -c 000000" &
 exec --no-startup-id gnome-settings-daemon &
 exec --no-startup-id gnome-sound-applet
-exec start-pulseaudio-x11 &
-exec --no-startup-id blueman-applet &
 exec --no-startup-id feh --bg-fill --randomize ~/.wallpaper/* &
 exec xmodmap /home/evanbrown/.Xmodmap &

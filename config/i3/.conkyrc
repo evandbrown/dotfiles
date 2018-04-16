@@ -38,9 +38,7 @@ TEXT
 
  [
    { "full_text" : "RAM ${memperc}%" , "color" : ${if_match ${memperc}<90}"\#ffffff"${else}"\#ff0000"${endif} },
-   { "full_text" : "♪ ${exec $HOME/.config/i3/volume.sh}" , "color" : "\#ffffff" },
    { "full_text" : "${cpubar cpu0 0,10}" , "color" : "\#585858" },
-   { "full_text" : "⚡ ${battery_short}" , "color" : ${if_match ${battery_percent} >= 60}"\#585858"${endif}${if_match ${battery_percent} < 60}${if_match ${battery_percent} < 20}"\#FF2600"${else}"\#FFF277"${endif}${endif} },
    { "full_text" : "${time %a %b %e,%l:%M%p}" , "color" : "\#ffffff" }
  ],
 

@@ -7,22 +7,26 @@ SCM_CHECK=true
 
 # vi mode
 #set -o vi
-export TERM=screen-256color
 
 PATH=$(getconf PATH)
 
 # Set up a default Go workspace
 [ -z "$GOPATH" ] && export GOPATH=$HOME/dev/golang
+export GOROOT=/usr/local/go
 
-export PATH=$PATH:$HOME/.local/bin:$HOME/bin:/usr/local/bin
+export PATH=/usr/share/maven/bin:$PATH
+export PATH=/usr/local/buildtools/java/jdk/bin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin
 
 # Add Go to the path
-export PATH=$PATH:$GOPATH/bin:/usr/local/go17/bin
-export PATH=$PATH:$HOME/bin/go_appengine/
+export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+
+# rbenv
+export PATH=$HOME/.rbenv/bin:$PATH
 
 # Path to the bash it configuration
 export BASH_IT=$HOME/.bash_it
-#export BASH_IT_THEME='bakke'
 export BASH_IT_THEME='powerline-multiline'
 
 # Set editor
@@ -42,8 +46,8 @@ if [ -x $HOME/bin/google-cloud-sdk/bin/gcloud ]; then
 fi
 
 # some sweet google creds
-if [ -s $HOME/keys/google.key.json ]; then
-  export GOOGLE_CREDENTIALS=$(cat $HOME/keys/google.key.json)
+if [ -s $HOME/.keys/google.key.json ]; then
+  export GOOGLE_CREDENTIALS=$(cat $HOME/.keys/google.key.json)
 fi
 
 # enable color support of ls and also add handy aliases
@@ -63,12 +67,14 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias tf='$GOPATH/bin/terraform'
-alias vim='$HOME/.local/bin/nvim'
+ alias vim='$HOME/.local/bin/nvim'
 
 # tmux
 alias tmux='tmux -2'
 alias mux='tmuxinator start'
 
+# intellij
+alias ij='/opt/intellij-ce-stable/bin/idea.sh'
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -79,3 +85,11 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/usr/local/google/home/evanbrown/google-cloud-sdk/path.bash.inc' ]; then source '/usr/local/google/home/evanbrown/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/usr/local/google/home/evanbrown/google-cloud-sdk/completion.bash.inc' ]; then source '/usr/local/google/home/evanbrown/google-cloud-sdk/completion.bash.inc'; fi
+
+eval "$(direnv hook bash)"

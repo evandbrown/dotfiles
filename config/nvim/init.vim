@@ -1,27 +1,28 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set runtimepath+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin()
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'fatih/vim-go'
-Plugin 'scrooloose/nerdTree'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'ap/vim-buftabline'
-Plugin 'zchee/deoplete-go'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'SirVer/ultisnips'
+call plug#begin('~/.config/nvim/plugged')
+Plug 'fatih/vim-go'
+Plug 'scrooloose/nerdTree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'flazz/vim-colorschemes'
+Plug 'altercation/vim-colors-solarized'
+Plug 'ap/vim-buftabline'
+Plug 'zchee/deoplete-go'
+Plug 'Shougo/deoplete.nvim'
+Plug 'airblade/vim-gitgutter'
+Plug 'SirVer/ultisnips'
+Plug 'roxma/vim-tmux-clipboard'
+call plug#end()
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
 filetype plugin indent on    " required
 
 set showcmd                       " Display incomplete commands.
@@ -49,10 +50,10 @@ set scrolloff=3                   " Show 3 lines of context around the cursor.
 set title                         " Set the terminal's title
 
 set visualbell                    " No beeping.
+set shortmess+=O
 
 " Color
 set background=light
-"colorscheme lucius
 colorscheme nofrils-light
 
 " Setting shell for vim
@@ -73,7 +74,7 @@ set ofu=syntaxcomplete#Complete
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
-let g:python3_host_prog = '/usr/bin/python3.4'
+let g:python3_host_prog = '/usr/bin/python3'
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 let mapleader=","
@@ -161,6 +162,3 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
-
-" yaml
-au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
