@@ -10,6 +10,7 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'fatih/vim-go'
+Plug 'fatih/vim-hclfmt'
 Plug 'scrooloose/nerdTree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
@@ -21,6 +22,8 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'roxma/vim-tmux-clipboard'
+Plug 'robertmeta/nofrils'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 call plug#end()
 
 filetype plugin indent on    " required

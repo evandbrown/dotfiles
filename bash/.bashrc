@@ -48,6 +48,7 @@ fi
 # some sweet google creds
 if [ -s $HOME/.keys/google.key.json ]; then
   export GOOGLE_CREDENTIALS=$(cat $HOME/.keys/google.key.json)
+  export GOOGLE_APPLICATION_CREDENTIALS=$HOME/.keys/google.key.json
 fi
 
 # enable color support of ls and also add handy aliases
@@ -67,7 +68,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias tf='$GOPATH/bin/terraform'
- alias vim='$HOME/.local/bin/nvim'
+alias vim='/usr/bin/nvim'
 
 # tmux
 alias tmux='tmux -2'
